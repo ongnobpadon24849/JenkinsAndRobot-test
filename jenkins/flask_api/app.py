@@ -8,7 +8,7 @@ def index():
 
 @app.route('/getcode', methods=['GET'])
 def getcode():
-    return "SDPX GROUP 3 Getcode 200?"
+    return "SDPX GROUP 3 (200 OK)"
 
 
 @app.route('/plus/<num1>/<num2>', methods=['GET'])
@@ -18,10 +18,13 @@ def plus(num1, num2):
         num2 = eval(num2)
 
         results = {
-                'plus' : num1 + num2,
+            'Num1' : num1,
+            'Num2' : num2,
+            'Operator' : 'plus (+)',
+            'Results' : num1 + num2,
             }
     except:
-        results = { 'error_msg' : 'Invalid input' }
+        results = { 'ERROR' : 'NOT NUMBER' }
 
     return jsonify(results)
 
